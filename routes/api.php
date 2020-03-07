@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 //Passport
 Route::post('login', 'API\UsersController@login');
 Route::post('register', 'API\UsersController@register');
+
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UsersController@details');
+    Route::resource('notes','API\NotesController');
 });
 
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
