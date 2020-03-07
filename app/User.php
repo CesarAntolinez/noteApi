@@ -44,4 +44,9 @@ class User extends Authenticatable
      * @var bool
      */
     public $timestamps = true;
+
+    public function notes()
+    {
+        return $this->hasMany('App\Note', 'user_id', 'id');
+    }
 }
